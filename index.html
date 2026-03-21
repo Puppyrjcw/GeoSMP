@@ -1,408 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>GeoSMP</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins, sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
 }
-
 body{
-background:#0f172a;
-color:white;
-line-height:1.6;
-scroll-behavior:smooth;
+  background:#0f172a;
+  color:white;
+  line-height:1.6;
+  scroll-behavior:smooth;
 }
-
 /* NAVBAR */
-
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 80px;
-background:#020617;
-position:sticky;
-top:0;
-z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 80px;
+  background:#020617;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
-
 nav h1{
-color:#22c55e;
+  color:#22c55e;
 }
-
 nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-weight:500;
+  color:white;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:500;
 }
-
 /* HERO */
-
 .hero{
-height:90vh;
-background:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
-url("earth.png");
-background-size:cover;
-background-position:center;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
+  height:90vh;
+  background:
+  linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+  url("earth.png");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
-
 .hero h2{
-font-size:70px;
-margin-bottom:10px;
+  font-size:70px;
+  margin-bottom:10px;
 }
-
 .hero p{
-font-size:20px;
-color:#cbd5f5;
-max-width:600px;
+  font-size:20px;
+  color:#cbd5f5;
+  max-width:600px;
+  margin-bottom:30px;
 }
-
+/* HERO BUTTON TRIANGLE */
 .hero-buttons{
-margin-top:30px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap:15px;
 }
-
+/* TOP row */
+.hero-buttons .top-row{
+  display:flex;
+  gap:20px;
+}
+/* BUTTONS */
 .btn{
-display:inline-block;
-padding:15px 30px;
-border-radius:8px;
-text-decoration:none;
-font-weight:600;
-margin:10px;
-border:none;
-cursor:pointer;
+  display:inline-flex;
+  padding:15px 30px;
+  border-radius:8px;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+  transition: all 0.3s ease;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:150px;
 }
-
 .play{
-background:#22c55e;
-color:black;
+  background:#22c55e;
+  color:black;
 }
-
 .discord{
-background:#5865F2;
-color:white;
+  background:#5865F2;
+  color:white;
 }
-
+.btn.play:hover{
+  box-shadow: 0 0 15px #22c55e;
+  transform: translateY(-3px);
+}
+.btn.discord:hover{
+  box-shadow: 0 0 15px #5865F2;
+  transform: translateY(-3px);
+}
+/* GLASSY MAP BUTTON */
+.map-link {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  min-width:180px;
+}
+.map-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
 /* FEATURES */
-
 .section{
-max-width:1200px;
-margin:auto;
-padding:120px 40px;
+  max-width:1200px;
+  margin:auto;
+  padding:120px 40px;
 }
-
 .feature{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
-margin-bottom:120px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  margin-bottom:120px;
 }
-
 .feature img{
-width:100%;
-border-radius:12px;
+  width:100%;
+  border-radius:12px;
 }
-
 .feature h3{
-font-size:36px;
-margin-bottom:10px;
+  font-size:36px;
+  margin-bottom:10px;
 }
-
 .feature p{
-color:#cbd5e1;
+  color:#cbd5e1;
 }
-
 .reverse{
-direction:rtl;
+  direction:rtl;
 }
-
 .reverse div{
-direction:ltr;
+  direction:ltr;
 }
-
+/* PLAYER REVIEWS */
+.reviews{
+  max-width:1200px;
+  margin:auto;
+  padding:120px 40px;
+}
+.review{
+  background:#1e293b;
+  padding:30px;
+  border-radius:12px;
+  margin-bottom:30px;
+  transition: all 0.3s ease;
+}
+.review:hover{
+  box-shadow: 0 0 15px #22c55e;
+  transform: translateY(-3px);
+}
+.review h4{
+  color:#22c55e;
+  margin-bottom:10px;
+}
+.review p{
+  color:#cbd5f5;
+}
 /* JOIN */
-
 .join{
-text-align:center;
-padding:120px 20px;
-background:#020617;
+  text-align:center;
+  padding:120px 20px;
+  background:#020617;
 }
-
 .server-ip{
-font-size:28px;
-margin-top:20px;
-color:#22c55e;
-font-weight:600;
+  font-size:28px;
+  margin-top:20px;
+  color:#22c55e;
+  font-weight:600;
 }
-
 /* FOOTER */
-
 footer{
-text-align:center;
-padding:30px;
-background:#020617;
-color:#94a3b8;
+  text-align:center;
+  padding:30px;
+  background:#020617;
+  color:#94a3b8;
 }
-
 /* POPUP */
-
 .modal{
-display:none;
-position:fixed;
-z-index:999;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.7);
-justify-content:center;
-align-items:center;
-opacity:0;
-transition:opacity .3s ease;
+  display:none;
+  position:fixed;
+  z-index:999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.7);
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transition:opacity .3s ease;
 }
-
 .modal.show{
-display:flex;
-opacity:1;
+  display:flex;
+  opacity:1;
 }
-
 .modal-content{
-background:#020617;
-padding:40px;
-border-radius:12px;
-text-align:center;
-max-width:400px;
-width:90%;
+  background:#020617;
+  padding:40px;
+  border-radius:12px;
+  text-align:center;
+  max-width:400px;
+  width:90%;
 }
-
 .copy-btn{
-background:#22c55e;
-border:none;
-padding:12px 20px;
-border-radius:6px;
-cursor:pointer;
-font-weight:600;
+  background:#22c55e;
+  border:none;
+  padding:12px 20px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  transition: all 0.3s ease;
 }
-
+.copy-btn:hover{
+  box-shadow: 0 0 15px #22c55e;
+  transform: translateY(-3px);
+}
 .discord-btn{
-background:#5865F2;
-border:none;
-padding:12px 25px;
-border-radius:6px;
-cursor:pointer;
-font-weight:600;
-color:white;
+  background:#5865F2;
+  border:none;
+  padding:12px 25px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  color:white;
+  transition: all 0.3s ease;
 }
-
+.discord-btn:hover{
+  box-shadow: 0 0 15px #5865F2;
+  transform: translateY(-3px);
+}
 </style>
-
 </head>
-
 <body>
 
 <div id="top"></div>
 
 <nav>
-
-<h1>GeoSMP</h1>
-
-<div>
-<a href="#top">Home</a>
-<a href="#features">Features</a>
-<a href="#join">Join</a>
-</div>
-
+  <h1>GeoSMP</h1>
+  <div>
+    <a href="#top">Home</a>
+    <a href="#features">Features</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#join">Join</a>
+  </div>
 </nav>
 
 <section class="hero">
-
-<h2>GeoSMP</h2>
-
-<p>
-Build nations, explore Earth, and shape the world with other players.
-</p>
-
-<div class="hero-buttons">
-
-<button class="btn play" onclick="openIP()">Play Now</button>
-<button class="btn discord" onclick="openDiscord()">Discord</button>
-
-</div>
-
+  <h2>GeoSMP</h2>
+  <p>Build nations, explore Earth, and shape the world with other players.</p>
+  <div class="hero-buttons">
+    <div class="top-row">
+      <button class="btn play" onclick="openIP()">Play Now</button>
+      <button class="btn discord" onclick="openDiscord()">Discord</button>
+    </div>
+    <a href="http://54.39.239.245:8159/" target="_blank" class="map-link">
+      <i class="fa-solid fa-map"></i> Explore Map <i class="fa-solid fa-external-link"></i>
+    </a>
+  </div>
 </section>
-
 
 <section id="features" class="section">
-
-<div class="feature">
-
-<img src="features-earth.png">
-
-<div>
-
-<h3>Realistic Earth Map</h3>
-
-<p>
-Explore a massive 1:500 Scale Recreation of Earth. Travel across continents,
-build cities, form nations, and shape the world with other players.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="feature reverse">
-
-<img src="features-gold.png">
-
-<div>
-
-<h3>Economy & Resources</h3>
-
-<p>
-Trade valuable resources in our gold-based economy to build
-your nation's wealth and influence!
-</p>
-
-</div>
-
-</div>
-
-
-<div class="feature">
-
-<img src="features-earth.png">
-
-<div>
-
-<h3>Community & Nations</h3>
-
-<p>
-Join or create nations, build alliances, or destroy them.
-Connect with other players to build something incredible...
-</p>
-
-</div>
-
-</div>
-
+  <div class="feature">
+    <img src="features-earth.png">
+    <div>
+      <h3>Realistic Earth Map</h3>
+      <p>Explore a massive 1:500 Scale Recreation of Earth. Travel across continents, build cities, form nations, and shape the world with other players.</p>
+    </div>
+  </div>
+  <div class="feature reverse">
+    <img src="features-gold.png">
+    <div>
+      <h3>Economy & Resources</h3>
+      <p>Trade valuable resources in our gold-based economy to build your nation's wealth and influence!</p>
+    </div>
+  </div>
+  <div class="feature">
+    <img src="features-earth.png">
+    <div>
+      <h3>Community & Nations</h3>
+      <p>Join or create nations, build alliances, or destroy them. Connect with other players to build something incredible...</p>
+    </div>
+  </div>
 </section>
 
+<section id="reviews" class="reviews">
+  <h2 style="text-align:center;margin-bottom:50px;">Player Reviews</h2>
+  <div class="review">
+    <h4>AlexGamer</h4>
+    <p>"GeoSMP feels like a real Earth! I love building my own nation and trading resources."</p>
+  </div>
+  <div class="review">
+    <h4>TurtleMaster99</h4>
+    <p>"The community is amazing, and the scale of the map is insane. I’ve never played a server like this before."</p>
+  </div>
+  <div class="review">
+    <h4>CraftyPlayer</h4>
+    <p>"Joining alliances and forming nations makes this server so dynamic. Highly recommend!"</p>
+  </div>
+</section>
 
 <section id="join" class="join">
-
-<h2>Join GeoSMP</h2>
-
-<p>Season 2 Launching on March 22nd.</p>
-
-<div class="server-ip">
-54.39.239.245:25569
-</div>
-
+  <h2>Join GeoSMP</h2>
+  <p>Season 2 Launching on March 22nd.</p>
+  <div class="server-ip">54.39.239.245:25569</div>
 </section>
 
-
-<footer>
-© 2026 GeoSMP
-</footer>
-
+<footer>© 2026 GeoSMP</footer>
 
 <!-- SERVER IP POPUP -->
-
 <div id="ipModal" class="modal">
-
-<div class="modal-content">
-
-<h2>Join GeoSMP</h2>
-
-<p>Copy the server IP below:</p>
-
-<p style="font-size:22px;color:#22c55e;">54.39.239.245:25569</p>
-
-<button class="copy-btn" id="copyButton" onclick="copyIP()">Copy IP</button>
-
+  <div class="modal-content">
+    <h2>Join GeoSMP</h2>
+    <p>Copy the server IP below:</p>
+    <p style="font-size:22px;color:#22c55e;">54.39.239.245:25569</p>
+    <button class="copy-btn" id="copyButton" onclick="copyIP()">Copy IP</button>
+  </div>
 </div>
-
-</div>
-
 
 <!-- DISCORD POPUP -->
-
 <div id="discordModal" class="modal">
-
-<div class="modal-content">
-
-<h2>Join our Discord</h2>
-
-<p>Click below to join the community.</p>
-
-<a href="https://discord.gg/349gemM8" target="_blank">
-<button class="discord-btn">Open Discord</button>
-</a>
-
+  <div class="modal-content">
+    <h2>Join our Discord</h2>
+    <p>Click below to join the community.</p>
+    <a href="https://discord.gg/349gemM8" target="_blank">
+      <button class="discord-btn">Open Discord</button>
+    </a>
+  </div>
 </div>
-
-</div>
-
 
 <script>
-
 function openIP(){
-let modal=document.getElementById("ipModal");
-modal.style.display="flex";
-setTimeout(()=>modal.classList.add("show"),10);
+  let modal=document.getElementById("ipModal");
+  modal.style.display="flex";
+  setTimeout(()=>modal.classList.add("show"),10);
 }
-
 function openDiscord(){
-let modal=document.getElementById("discordModal");
-modal.style.display="flex";
-setTimeout(()=>modal.classList.add("show"),10);
+  let modal=document.getElementById("discordModal");
+  modal.style.display="flex";
+  setTimeout(()=>modal.classList.add("show"),10);
 }
-
 window.onclick=function(event){
-if(event.target.classList.contains("modal")){
-event.target.classList.remove("show");
-setTimeout(()=>event.target.style.display="none",300);
+  if(event.target.classList.contains("modal")){
+    event.target.classList.remove("show");
+    setTimeout(()=>event.target.style.display="none",300);
+  }
 }
-}
-
 function copyIP(){
-
-navigator.clipboard.writeText("54.39.239.245:25569");
-
-let btn=document.getElementById("copyButton");
-
-btn.innerText="IP Copied!";
-
-setTimeout(()=>{
-btn.innerText="Copy IP";
-},2000);
-
+  navigator.clipboard.writeText("54.39.239.245:25569");
+  let btn=document.getElementById("copyButton");
+  btn.innerText="IP Copied!";
+  setTimeout(()=>{ btn.innerText="Copy IP"; },2000);
 }
-
 </script>
-
 
 </body>
 </html>
