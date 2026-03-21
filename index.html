@@ -77,11 +77,18 @@ header nav a:hover{
   display:flex;
   flex-direction: column;
   align-items: center;
-  gap:15px;
+  gap:20px;
 }
 .hero-buttons .top-row{
   display:flex;
   gap:20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-buttons .bottom-row{
+  display:flex;
+  justify-content:center;
+  width:100%;
 }
 
 /* BUTTONS */
@@ -201,11 +208,22 @@ header nav a:hover{
   padding:120px 20px;
   background:#020617;
 }
-.server-ip{
-  font-size:28px;
-  margin-top:20px;
-  color:#22c55e;
+.staff-link{
+  display:inline-block;
+  margin-top:10px;
   font-weight:600;
+  color:#22c55e;
+  text-decoration:none;
+  padding:10px 20px;
+  border:2px solid #22c55e;
+  border-radius:8px;
+  transition: all 0.3s ease;
+}
+.staff-link:hover{
+  background:#22c55e;
+  color:black;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px #22c55e;
 }
 
 /* FOOTER */
@@ -295,9 +313,11 @@ footer{
       <button class="btn play" data-modal="ipModal">Play Now</button>
       <button class="btn discord" data-modal="discordModal">Discord</button>
     </div>
-    <a href="http://54.39.239.245:8159/" target="_blank" class="map-link">
-      <i class="fa-solid fa-map" aria-label="Explore Map"></i> Explore Map ↗ <i class="fa-solid fa-external-link"></i>
-    </a>
+    <div class="bottom-row">
+      <a href="http://54.39.239.245:8159/" target="_blank" class="map-link">
+        <i class="fa-solid fa-map" aria-label="Explore Map"></i> Explore Map ↗ <i class="fa-solid fa-external-link"></i>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -344,15 +364,15 @@ footer{
 <section id="join" class="join">
   <h2>Join GeoSMP</h2>
   <p>Join today and claim your empire forever...</p>
-  <div class="server-ip">54.39.239.245:25569</div>
   
-  <h2>Interested in Staffing?</h2>
+  <!-- Join Now button instead of server IP -->
+  <button class="btn play" data-modal="ipModal">Join Now</button>
+  
+  <h2 style="margin-top:40px;">Interested in Staffing?</h2>
   <p>Want to be a part of the GeoSMP Staff Team? Enter your application here:</p>
   <a href="https://forms.gle/M5WK5EzoWf52yvFR7" target="_blank" class="staff-link">Apply Here</a>
-    <div style="margin-top:20px;">
-    <button class="btn play" data-modal="ipModal">Join Now</button>
-  </div>
 </section>
+</main>
 
 <footer>© 2026 GeoSMP</footer>
 
