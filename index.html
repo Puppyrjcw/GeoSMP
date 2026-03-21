@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GeoSMP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins, sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+background:#020617;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+nav h1{
+color:#22c55e;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),
+url("earth.png");
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero h2{
+font-size:70px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+color:#cbd5f5;
+max-width:600px;
+}
+
+.hero-buttons{
+margin-top:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 30px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+margin:10px;
+}
+
+.play{
+background:#22c55e;
+color:black;
+}
+
+.discord{
+background:#5865F2;
+}
+
+/* FEATURES */
+
+.section{
+max-width:1200px;
+margin:auto;
+padding:120px 40px;
+}
+
+.feature{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+margin-bottom:120px;
+}
+
+.feature img{
+width:100%;
+border-radius:12px;
+}
+
+.feature h3{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.feature p{
+color:#cbd5e1;
+}
+
+.reverse{
+direction:rtl;
+}
+
+.reverse div{
+direction:ltr;
+}
+
+/* JOIN */
+
+.join{
+text-align:center;
+padding:120px 20px;
+background:#020617;
+}
+
+.server-ip{
+font-size:28px;
+margin-top:20px;
+color:#22c55e;
+font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+background:#020617;
+color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h1>GeoSMP</h1>
+
+<div>
+<a href="#">Home</a>
+<a href="#features">Features</a>
+<a href="#join">Join</a>
+</div>
+
+</nav>
+
+<section class="hero">
+
+<h2>GeoSMP</h2>
+
+<p>
+Build nations, explore Earth, and shape the world with other players.
+</p>
+
+<div class="hero-buttons">
+
+<a class="btn play" href="#">Play Now</a>
+<a class="btn discord" href="#">Discord</a>
+
+</div>
+
+</section>
+
+
+<section id="features" class="section">
+
+<div class="feature">
+
+<img src="earth.png">
+
+<div>
+
+<h3>Realistic Earth Map</h3>
+
+<p>
+Explore a massive Minecraft recreation of Earth. Travel across continents, 
+build cities, form nations, and shape the world with other players.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="feature reverse">
+
+<img src="goldroom.png">
+
+<div>
+
+<h3>Economy & Resources</h3>
+
+<p>
+Trade valuable resources, create shops, and grow your wealth. 
+Players can build thriving economies and powerful nations.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<img src="earth.png">
+
+<div>
+
+<h3>Community & Nations</h3>
+
+<p>
+Join or create nations, build alliances, and collaborate with players 
+around the world to create something incredible.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="join" class="join">
+
+<h2>Join GeoSMP</h2>
+
+<p>Server launching soon.</p>
+
+<div class="server-ip">
+
+play.geosmp.net
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 GeoSMP
+
+</footer>
+
+
+</body>
+
+</html>
