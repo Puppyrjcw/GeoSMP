@@ -23,6 +23,7 @@ body{
 background:#0f172a;
 color:white;
 line-height:1.6;
+scroll-behavior:smooth;
 }
 
 /* NAVBAR */
@@ -87,6 +88,8 @@ border-radius:8px;
 text-decoration:none;
 font-weight:600;
 margin:10px;
+border:none;
+cursor:pointer;
 }
 
 .play{
@@ -96,6 +99,7 @@ color:black;
 
 .discord{
 background:#5865F2;
+color:white;
 }
 
 /* FEATURES */
@@ -160,18 +164,70 @@ background:#020617;
 color:#94a3b8;
 }
 
+/* POPUP */
+
+.modal{
+display:none;
+position:fixed;
+z-index:999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+opacity:0;
+transition:opacity .3s ease;
+}
+
+.modal.show{
+display:flex;
+opacity:1;
+}
+
+.modal-content{
+background:#020617;
+padding:40px;
+border-radius:12px;
+text-align:center;
+max-width:400px;
+width:90%;
+}
+
+.copy-btn{
+background:#22c55e;
+border:none;
+padding:12px 20px;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+}
+
+.discord-btn{
+background:#5865F2;
+border:none;
+padding:12px 25px;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+color:white;
+}
+
 </style>
 
 </head>
 
 <body>
 
+<div id="top"></div>
+
 <nav>
 
 <h1>GeoSMP</h1>
 
 <div>
-<a href="#">Home</a>
+<a href="#top">Home</a>
 <a href="#features">Features</a>
 <a href="#join">Join</a>
 </div>
@@ -188,8 +244,8 @@ Build nations, explore Earth, and shape the world with other players.
 
 <div class="hero-buttons">
 
-<a class="btn play" href="#">Play Now</a>
-<a class="btn discord" href="#">Discord</a>
+<button class="btn play" onclick="openIP()">Play Now</button>
+<button class="btn discord" onclick="openDiscord()">Discord</button>
 
 </div>
 
@@ -207,7 +263,7 @@ Build nations, explore Earth, and shape the world with other players.
 <h3>Realistic Earth Map</h3>
 
 <p>
-Explore a massive Minecraft recreation of Earth. Travel across continents, 
+Explore a massive 1:500 Scale Recreation of Earth. Travel across continents,
 build cities, form nations, and shape the world with other players.
 </p>
 
@@ -225,8 +281,8 @@ build cities, form nations, and shape the world with other players.
 <h3>Economy & Resources</h3>
 
 <p>
-Trade valuable resources, create shops, and grow your wealth. 
-Players can build thriving economies and powerful nations.
+Trade valuable resources in our gold-based economy to build
+your nation's wealth and influence!
 </p>
 
 </div>
@@ -243,7 +299,7 @@ Players can build thriving economies and powerful nations.
 <h3>Community & Nations</h3>
 
 <p>
-Join or create nations, build alliances, or destroy them. 
+Join or create nations, build alliances, or destroy them.
 Connect with other players to build something incredible...
 </p>
 
@@ -258,24 +314,95 @@ Connect with other players to build something incredible...
 
 <h2>Join GeoSMP</h2>
 
-<p>Server launching soon.</p>
+<p>Season 2 Launching on March 22nd.</p>
 
 <div class="server-ip">
-
-
-
+54.39.239.245:25569
 </div>
 
 </section>
 
 
 <footer>
-
 © 2026 GeoSMP
-
 </footer>
 
 
-</body>
+<!-- SERVER IP POPUP -->
 
+<div id="ipModal" class="modal">
+
+<div class="modal-content">
+
+<h2>Join GeoSMP</h2>
+
+<p>Copy the server IP below:</p>
+
+<p style="font-size:22px;color:#22c55e;">54.39.239.245:25569</p>
+
+<button class="copy-btn" id="copyButton" onclick="copyIP()">Copy IP</button>
+
+</div>
+
+</div>
+
+
+<!-- DISCORD POPUP -->
+
+<div id="discordModal" class="modal">
+
+<div class="modal-content">
+
+<h2>Join our Discord</h2>
+
+<p>Click below to join the community.</p>
+
+<a href="https://discord.gg/349gemM8" target="_blank">
+<button class="discord-btn">Open Discord</button>
+</a>
+
+</div>
+
+</div>
+
+
+<script>
+
+function openIP(){
+let modal=document.getElementById("ipModal");
+modal.style.display="flex";
+setTimeout(()=>modal.classList.add("show"),10);
+}
+
+function openDiscord(){
+let modal=document.getElementById("discordModal");
+modal.style.display="flex";
+setTimeout(()=>modal.classList.add("show"),10);
+}
+
+window.onclick=function(event){
+if(event.target.classList.contains("modal")){
+event.target.classList.remove("show");
+setTimeout(()=>event.target.style.display="none",300);
+}
+}
+
+function copyIP(){
+
+navigator.clipboard.writeText("54.39.239.245:25569");
+
+let btn=document.getElementById("copyButton");
+
+btn.innerText="IP Copied!";
+
+setTimeout(()=>{
+btn.innerText="Copy IP";
+},2000);
+
+}
+
+</script>
+
+
+</body>
 </html>
