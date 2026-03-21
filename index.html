@@ -8,6 +8,7 @@
 <!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <style>
+/* RESET & BASE */
 *{
   margin:0;
   padding:0;
@@ -20,8 +21,9 @@ body{
   line-height:1.6;
   scroll-behavior:smooth;
 }
+
 /* NAVBAR */
-nav{
+header nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -31,15 +33,20 @@ nav{
   top:0;
   z-index:100;
 }
-nav h1{
+header nav h1{
   color:#22c55e;
 }
-nav a{
+header nav a{
   color:white;
   text-decoration:none;
   margin-left:25px;
   font-weight:500;
+  transition: color 0.3s ease;
 }
+header nav a:hover{
+  color:#22c55e;
+}
+
 /* HERO */
 .hero{
   height:90vh;
@@ -64,6 +71,7 @@ nav a{
   max-width:600px;
   margin-bottom:30px;
 }
+
 /* HERO BUTTON TRIANGLE */
 .hero-buttons{
   display:flex;
@@ -71,13 +79,13 @@ nav a{
   align-items: center;
   gap:15px;
 }
-/* TOP row */
 .hero-buttons .top-row{
   display:flex;
   gap:20px;
 }
+
 /* BUTTONS */
-.btn{
+.btn, .copy-btn, .discord-btn{
   display:inline-flex;
   padding:15px 30px;
   border-radius:8px;
@@ -90,22 +98,19 @@ nav a{
   gap:8px;
   min-width:150px;
 }
-.play{
-  background:#22c55e;
+.btn.play{
+  background: linear-gradient(90deg, #22c55e, #16a34a);
   color:black;
 }
-.discord{
-  background:#5865F2;
+.btn.discord{
+  background: linear-gradient(90deg, #5865F2, #4752C4);
   color:white;
 }
-.btn.play:hover{
-  box-shadow: 0 0 15px #22c55e;
+.btn:hover, .copy-btn:hover, .discord-btn:hover{
   transform: translateY(-3px);
+  box-shadow: 0 0 15px currentColor;
 }
-.btn.discord:hover{
-  box-shadow: 0 0 15px #5865F2;
-  transform: translateY(-3px);
-}
+
 /* GLASSY MAP BUTTON */
 .map-link {
   background: rgba(255, 255, 255, 0.1);
@@ -129,7 +134,8 @@ nav a{
   transform: translateY(-3px);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
 }
-/* FEATURES */
+
+/* SECTIONS */
 .section{
   max-width:1200px;
   margin:auto;
@@ -145,6 +151,10 @@ nav a{
 .feature img{
   width:100%;
   border-radius:12px;
+  transition: transform 0.3s ease;
+}
+.feature img:hover{
+  transform: scale(1.03);
 }
 .feature h3{
   font-size:36px;
@@ -159,6 +169,7 @@ nav a{
 .reverse div{
   direction:ltr;
 }
+
 /* PLAYER REVIEWS */
 .reviews{
   max-width:1200px;
@@ -183,6 +194,7 @@ nav a{
 .review p{
   color:#cbd5f5;
 }
+
 /* JOIN */
 .join{
   text-align:center;
@@ -195,6 +207,7 @@ nav a{
   color:#22c55e;
   font-weight:600;
 }
+
 /* FOOTER */
 footer{
   text-align:center;
@@ -202,7 +215,8 @@ footer{
   background:#020617;
   color:#94a3b8;
 }
-/* POPUP */
+
+/* POPUPS */
 .modal{
   display:none;
   position:fixed;
@@ -228,33 +242,31 @@ footer{
   text-align:center;
   max-width:400px;
   width:90%;
-}
-.copy-btn{
-  background:#22c55e;
-  border:none;
-  padding:12px 20px;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:600;
+  transform: scale(0.9);
   transition: all 0.3s ease;
 }
-.copy-btn:hover{
-  box-shadow: 0 0 15px #22c55e;
-  transform: translateY(-3px);
+.modal.show .modal-content{
+  transform: scale(1);
 }
-.discord-btn{
-  background:#5865F2;
-  border:none;
-  padding:12px 25px;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:600;
-  color:white;
-  transition: all 0.3s ease;
-}
-.discord-btn:hover{
-  box-shadow: 0 0 15px #5865F2;
-  transform: translateY(-3px);
+
+/* RESPONSIVE */
+@media (max-width: 768px){
+  .hero h2{
+    font-size:45px;
+  }
+  .hero p{
+    font-size:16px;
+  }
+  .feature{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  header nav{
+    padding:20px 40px;
+  }
+  .hero-buttons .top-row{
+    flex-direction: column;
+  }
 }
 </style>
 </head>
@@ -262,50 +274,53 @@ footer{
 
 <div id="top"></div>
 
-<nav>
-  <h1>GeoSMP</h1>
-  <div>
-    <a href="#top">Home</a>
-    <a href="#features">Features</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#join">Join</a>
-  </div>
-</nav>
+<header>
+  <nav>
+    <h1>GeoSMP</h1>
+    <div>
+      <a href="#top">Home</a>
+      <a href="#features">Features</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#join">Join</a>
+    </div>
+  </nav>
+</header>
 
+<main>
 <section class="hero">
   <h2>GeoSMP</h2>
   <p>Build nations, explore Earth, and shape the world with other players.</p>
   <div class="hero-buttons">
     <div class="top-row">
-      <button class="btn play" onclick="openIP()">Play Now</button>
-      <button class="btn discord" onclick="openDiscord()">Discord</button>
+      <button class="btn play" data-modal="ipModal">Play Now</button>
+      <button class="btn discord" data-modal="discordModal">Discord</button>
     </div>
     <a href="http://54.39.239.245:8159/" target="_blank" class="map-link">
-      <i class="fa-solid fa-map"></i> Explore Map ↗<i class="fa-solid fa-external-link"></i>
+      <i class="fa-solid fa-map" aria-label="Explore Map"></i> Explore Map ↗ <i class="fa-solid fa-external-link"></i>
     </a>
   </div>
 </section>
 
 <section id="features" class="section">
   <div class="feature">
-    <img src="features-earth.png">
+    <img src="features-earth.png" alt="Realistic Earth Map">
     <div>
       <h3>Realistic Earth Map</h3>
-      <p>Explore a massive 1:500 Scale Recreation of Earth featuring vast continents with every geographical feature you can imagine providing the best places for players to build their very own Towns and Nations. View all of this live on our Bluemap (Add link here).</p>
+      <p>Explore a massive 1:500 Scale Recreation of Earth featuring vast continents with every geographical feature you can imagine providing the best places for players to build their very own Towns and Nations. View all of this live on our Bluemap.</p>
     </div>
   </div>
   <div class="feature reverse">
-    <img src="features-gold.png">
+    <img src="features-gold.png" alt="Economy & Resources">
     <div>
       <h3>Economy & Resources</h3>
-      <p>Trade valuable resources using our own Gold Based Economy adding a fantastic way to build your very own Nation's economy from the ground up! Our map also includes regular Vanilla ore generation so you never run out of resources!</p>
+      <p>Trade valuable resources using our Gold Based Economy, building your Nation's economy from the ground up. Our map also includes regular Vanilla ore generation so you never run out of resources!</p>
     </div>
   </div>
   <div class="feature">
-    <img src="features-community-nations.png">
+    <img src="features-community-nations.png" alt="Community & Nations">
     <div>
       <h3>Community & Nations</h3>
-      <p>Join or create Nations using Towny, create alliances from the ground up or destroy other Nations with GeoSMP's war capabilites or turn your Nation to peaceful and never have to worry about war again! With Towny you can forget about worrying about greifers! By creating a Town, only the Mayor can Break, Place or interact with blocks!</p>
+      <p>Join or create Nations using Towny. Form alliances, defend or expand your Nation, or keep it peaceful. Only Mayors can interact with blocks, ensuring a grief-free environment!</p>
     </div>
   </div>
 </section>
@@ -331,9 +346,10 @@ footer{
   <p>Join today and claim your empire forever...</p>
   <div class="server-ip">54.39.239.245:25569</div>
   <h2>Interested in Staffing?</h2>
-  <p>Want to be apart of the GeoSMP Staff Team? Enter your application here!</p>
-  <div class="server-ip">https://forms.gle/M5WK5EzoWf52yvFR7</div>
+  <p>Want to be a part of the GeoSMP Staff Team? Enter your application here!</p>
+  <div class="server-ip"><a href="https://forms.gle/M5WK5EzoWf52yvFR7" target="_blank" style="color:#22c55e;">https://forms.gle/M5WK5EzoWf52yvFR7</a></div>
 </section>
+</main>
 
 <footer>© 2026 GeoSMP</footer>
 
@@ -343,7 +359,7 @@ footer{
     <h2>Join GeoSMP</h2>
     <p>Copy the server IP below:</p>
     <p style="font-size:22px;color:#22c55e;">54.39.239.245:25569</p>
-    <button class="copy-btn" id="copyButton" onclick="copyIP()">Copy IP</button>
+    <button class="copy-btn" id="copyButton">Copy IP</button>
   </div>
 </div>
 
@@ -359,28 +375,30 @@ footer{
 </div>
 
 <script>
-function openIP(){
-  let modal=document.getElementById("ipModal");
-  modal.style.display="flex";
-  setTimeout(()=>modal.classList.add("show"),10);
-}
-function openDiscord(){
-  let modal=document.getElementById("discordModal");
-  modal.style.display="flex";
-  setTimeout(()=>modal.classList.add("show"),10);
-}
-window.onclick=function(event){
-  if(event.target.classList.contains("modal")){
-    event.target.classList.remove("show");
-    setTimeout(()=>event.target.style.display="none",300);
+// MODAL OPEN
+document.querySelectorAll('[data-modal]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const modal = document.getElementById(btn.dataset.modal);
+    modal.style.display = "flex";
+    setTimeout(() => modal.classList.add("show"), 10);
+  });
+});
+
+// MODAL CLOSE
+window.addEventListener('click', event => {
+  if(event.target.classList.contains('modal')){
+    event.target.classList.remove('show');
+    setTimeout(()=> event.target.style.display='none', 300);
   }
-}
-function copyIP(){
+});
+
+// COPY IP
+document.getElementById('copyButton').addEventListener('click', () => {
   navigator.clipboard.writeText("54.39.239.245:25569");
-  let btn=document.getElementById("copyButton");
-  btn.innerText="IP Copied!";
-  setTimeout(()=>{ btn.innerText="Copy IP"; },2000);
-}
+  const btn = document.getElementById('copyButton');
+  btn.innerText = "IP Copied!";
+  setTimeout(()=> btn.innerText="Copy IP", 2000);
+});
 </script>
 
 </body>
