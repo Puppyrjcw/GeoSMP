@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoSMP Shop</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* BASE */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:white;
+}
+
+/* NAVBAR */
+
+header nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 80px;
+  background:#020617;
+}
+
+header nav h1{
+  color:#22c55e;
+}
+
+header nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:500;
+  transition:0.3s;
+}
+
+header nav a:hover{
+  color:#22c55e;
+}
+
+/* SHOP SECTION */
+
+.shop{
+  max-width:1200px;
+  margin:auto;
+  padding:120px 40px;
+  text-align:center;
+}
+
+.shop h2{
+  font-size:48px;
+  margin-bottom:60px;
+}
+
+/* PRODUCT CARD */
+
+.product-grid{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+.product{
+  background:#1e293b;
+  padding:40px;
+  border-radius:12px;
+  width:280px;
+  transition:all 0.3s ease;
+}
+
+.product:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 15px #22c55e;
+}
+
+.product h3{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.price{
+  font-size:24px;
+  color:#22c55e;
+  margin-bottom:20px;
+}
+
+.product ul{
+  list-style:none;
+  margin-bottom:20px;
+}
+
+.product li{
+  margin:6px 0;
+  color:#cbd5e1;
+}
+
+/* BUY BUTTON */
+
+.buy-btn{
+  background:linear-gradient(90deg,#22c55e,#16a34a);
+  color:black;
+  padding:12px 25px;
+  border:none;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.buy-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 15px #22c55e;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#020617;
+  color:#94a3b8;
+  margin-top:80px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+  header nav{
+    padding:20px 40px;
+  }
+
+  .shop h2{
+    font-size:36px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<h1>GeoSMP</h1>
+
+<div>
+<a href="index.html">Home</a>
+<a href="index.html#features">Features</a>
+<a href="index.html#reviews">Reviews</a>
+<a href="index.html#join">Join</a>
+<a href="shop.html">Shop</a>
+</div>
+
+</nav>
+</header>
+
+<section class="shop">
+
+<h2>GeoSMP Store</h2>
+
+<div class="product-grid">
+
+<div class="product">
+<h3>VIP Rank</h3>
+
+<p class="price">$5 CAD</p>
+
+<ul>
+<li>Custom Username Gradient</li>
+<li>VIP Chat Prefix</li>
+<li>Extra View Distance</li>
+<li>Support the Server ❤️</li>
+</ul>
+
+<a href="#">
+<button class="buy-btn">Buy VIP</button>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 GeoSMP
+</footer>
+
+</body>
+</html>
