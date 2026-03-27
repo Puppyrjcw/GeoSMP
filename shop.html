@@ -18,7 +18,11 @@
 }
 
 body{
-  background:#0f172a;
+  background:
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.8)),
+    url("earth.png");
+  background-size:cover;
+  background-position:center;
   color:white;
 }
 
@@ -77,11 +81,12 @@ header nav a:hover{
   border-radius:12px;
   width:280px;
   transition:all 0.3s ease;
+  box-shadow:0 0 20px #22c55e; /* permanent glow */
 }
 
 .product:hover{
   transform:translateY(-5px);
-  box-shadow:0 0 15px #22c55e;
+  box-shadow:0 0 25px #22c55e;
 }
 
 .product h3{
@@ -89,11 +94,16 @@ header nav a:hover{
   margin-bottom:10px;
 }
 
+/* PRICE */
+
 .price{
   font-size:24px;
   color:#22c55e;
   margin-bottom:20px;
+  font-weight:700;
 }
+
+/* FEATURES */
 
 .product ul{
   list-style:none;
@@ -103,6 +113,7 @@ header nav a:hover{
 .product li{
   margin:6px 0;
   color:#cbd5e1;
+  font-weight:400; /* not bold */
 }
 
 /* BUY BUTTON */
@@ -121,6 +132,43 @@ header nav a:hover{
 .buy-btn:hover{
   transform:translateY(-3px);
   box-shadow:0 0 15px #22c55e;
+}
+
+/* POPUP MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.7);
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transition:opacity .3s ease;
+}
+
+.modal.show{
+  display:flex;
+  opacity:1;
+}
+
+.modal-content{
+  background:#020617;
+  padding:40px;
+  border-radius:12px;
+  text-align:center;
+  max-width:400px;
+  width:90%;
+  transform:scale(0.9);
+  transition:all 0.3s ease;
+}
+
+.modal.show .modal-content{
+  transform:scale(1);
 }
 
 /* FOOTER */
@@ -176,7 +224,7 @@ footer{
 <div class="product">
 <h3>VIP Rank</h3>
 
-<p class="price">$5 CAD</p>
+<p class="price"><strong>$5 CAD</strong></p>
 
 <ul>
 <li>Custom Username Gradient</li>
@@ -185,9 +233,7 @@ footer{
 <li>Support the Server ❤️</li>
 </ul>
 
-<a href="#">
-<button class="buy-btn">Buy VIP</button>
-</a>
+<button class="buy-btn" id="vipButton">Buy VIP</button>
 
 </div>
 
@@ -198,6 +244,34 @@ footer{
 <footer>
 © 2026 GeoSMP
 </footer>
+
+<!-- POPUP -->
+
+<div id="vipModal" class="modal">
+  <div class="modal-content">
+    <h2>Store Unavailable</h2>
+    <p>This feature is currently not available yet.</p>
+  </div>
+</div>
+
+<script>
+
+const vipButton = document.getElementById("vipButton");
+const modal = document.getElementById("vipModal");
+
+vipButton.addEventListener("click", () => {
+  modal.style.display = "flex";
+  setTimeout(()=> modal.classList.add("show"),10);
+});
+
+window.addEventListener("click", (event) => {
+  if(event.target.classList.contains("modal")){
+    modal.classList.remove("show");
+    setTimeout(()=> modal.style.display="none",300);
+  }
+});
+
+</script>
 
 </body>
 </html>
